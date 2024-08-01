@@ -16,7 +16,7 @@ class GetCategoryUseCase @Inject constructor(
     operator fun invoke(): Flow<Resource<List<Category>>> = flow {
         try{
             emit(Resource.Loading<List<Category>>())
-            val categories = repository.getCategories().map{it.toCategory()}
+            val categories = repository.getCategories()
             emit(Resource.Success<List<Category>>(categories))
 
         } catch (e: HttpException)  {
