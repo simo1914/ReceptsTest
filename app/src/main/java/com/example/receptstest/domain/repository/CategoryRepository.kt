@@ -4,10 +4,8 @@ import com.example.receptstest.data.remote.dto.CategoryDto
 
 interface CategoryRepository {
 
-   // suspend fun getCategories(): List<CategoryDto>
+   suspend fun getCategories(): List<CategoryDto>
 
     //suspend fun getCoinById(coinId: String): CoinDetailDto
-    //moonniiii
-    //moooossssiii
-    //mooonssiisisisisisi
+
 }
