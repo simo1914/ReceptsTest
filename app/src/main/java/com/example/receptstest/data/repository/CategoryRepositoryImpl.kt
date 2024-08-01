@@ -1,4 +1,3 @@
-/*
 package com.example.receptstest.data.repository
 
 import com.example.receptstest.data.remote.dto.CategoryDto
@@ -14,9 +13,7 @@ class CategoryRepositoryImpl @Inject constructor(
         return api.getCategories()
     }
 
-  */
-/*  override suspend fun GetCategoriesById(coinId: String): CoinDetailDto {
+  /*  override suspend fun GetCategoriesById(coinId: String): CoinDetailDto {
         return api.getCoinById(coinId)
-    }*//*
-
-}*/
+    }*/
+}

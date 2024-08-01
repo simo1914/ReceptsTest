@@ -7,5 +7,6 @@ interface CategoryRepository {
     suspend fun getCategories(): List<CategoryDto>
 
     //suspend fun getCoinById(coinId: String): CoinDetailDto
+    //moonniiii
 
 }
