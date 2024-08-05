@@ -1,6 +1,5 @@
 package com.example.receptstest.di
 
-import android.provider.SyncStateContract
 import com.example.receptstest.common.Constants
 import com.example.receptstest.data.remote.dto.CategoryTheMealDbApi
 import com.example.receptstest.data.repository.CategoryRepositoryImpl
@@ -18,6 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+
     @Provides
     @Singleton
     fun provideTheMealDb(): CategoryTheMealDbApi {
@@ -30,8 +30,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCategoryRepository(api: CategoryTheMealDbApi): CategoryRepository{
+    fun provideMealRepository(api: CategoryTheMealDbApi): CategoryRepository {
         return CategoryRepositoryImpl(api)
-
     }
 }

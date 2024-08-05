@@ -16,11 +16,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.receptstest.domain.model.Category
+import com.example.receptstest.domain.model.Meal
 
 @Composable
-fun CategoryListScreen(
-    navController: NavController,
-    viewModel: CategoryListViewModel = hiltViewModel()
+fun MealScreen(
+    //navController: NavController,
+    viewModel: MealViewModel = hiltViewModel()
 
 ){
     val state = viewModel.state.value
@@ -30,13 +32,8 @@ fun CategoryListScreen(
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ){
-            items(state.categories) { category ->
-                CategoryListItem(
-                    category=category,
-                    onItemClick = {
-                        navController.navigate(Screen.MealScreen.route + "/${category.strCategory}") //lipsva /
-                    }
-                )
+            items(state.meals) { meal ->
+                MealItem(meal = meal)
             }
         }
         if (state.error.isNotBlank()){

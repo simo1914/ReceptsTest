@@ -10,8 +10,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.receptstest.Presentation.CategoryListItem
 import com.example.receptstest.Presentation.CategoryListScreen
+import com.example.receptstest.Presentation.MealScreen
+import com.example.receptstest.Presentation.Screen
 import com.example.receptstest.domain.model.Category
 import com.example.receptstest.ui.theme.ReceptsTestTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,14 +30,28 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    CategoryListScreen()
+                    color = MaterialTheme.colorScheme.background) {
+                    val navController = rememberNavController()
+                    NavHost(navController = navController, startDestination = Screen.CategoryListScreen.route
+                    ){
+                        composable(
+                            route = Screen.CategoryListScreen.route
+                        ){
+                            CategoryListScreen(navController)
+                        }
+                        composable(
+                            route = Screen.MealScreen.route + "/{strCategory}"//tuk sushto propsukam /
+                        ){
+                            MealScreen()
+                        }
+
+                    }
                 }
             }
         }
     }
 }
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
